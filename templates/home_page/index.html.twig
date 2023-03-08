@@ -1,0 +1,239 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home Page {% endblock %}
+
+{% block body %}
+    <div class="header_section">
+         <div class="header_main">
+            <div class="mobile_menu">
+               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="logo_mobile">
+                  <a href="{{ path('home') }}">
+                  <img src="{{ asset('assets/images/1.png') }}  ">
+                  </a>
+                  </div>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{ path('home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="#">Contact</a>
+                        </li>
+                     </ul>
+					 
+
+                  </div>
+               </nav>
+            </div>
+            <div class="container-fluid">
+               <div class="logo"><a href="{{ path('home') }}"><img src="{{ asset('assets/images/logo.png') }} "></a></div>
+               <div class="menu_main">
+                  <ul>
+                     <li class="active"><a href="{{ path('home') }}">Home</a></li>
+                     <li><a href="{{ path('about') }}">About</a></li>
+                     <li><a href="{{ path('service') }}">Guide</a></li>
+
+				    {% if app.user %}
+                        <li><a href="{{path('main') }}">Available place </a></li>
+                        <li><a href="{{ path('review') }}">Review</a></li>
+                        <li>
+                            <a href="{{ path('app_logout') }}">Log out</a>
+                        </li>
+                    {% else %}
+                        <li >
+                            <a  href="{{ path('app_register') }}">Register</a>
+                        </li>
+                        <li>
+                            <a  href="{{ path('app_login') }}">Log in</a>
+                        </li>
+			        {% endif %}
+			        
+               </div>
+            </div>
+         </div>
+         <!-- banner section start -->
+         <div class="banner_section layout_padding">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+
+                  <div class="carousel-item active">
+                     <div class="container">
+                        <h1 class="banner_taital">Description</h1>
+                        <p class="banner_text">
+                        With park-aid support you'll be able to find empty parking spaces in the website without losing time searching for an available spot 
+                        , the coordinates of the car parks are available in the "service" section on the website.
+                        </p>
+                        {% if app.user %}
+                         <div class="read_bt"><a href="{{ path('main') }}"> Get started  </a></div>
+                        {% else %}
+                        <div class="read_bt"><a href="{{ path('app_register') }}"> Get started  </a></div>
+			               {% endif %}
+                        
+                     </div>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+         <!-- banner section end -->
+      </div>
+
+      <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+      <!-- services section start -->
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">website guide</h1>
+            <p class="choose_text"> 
+            Are you ou lost ?
+            You do not know where to start ? 
+            Here is a guide that allows you to know the steps to follow to properly navigate our website
+             </p>
+            <div class="read_bt_1"><a href="{{ path('service') }}">Read More</a></div>
+         </div>
+      </div>
+      <!-- services section end -->
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="about_taital_main">
+                     <h1 class="about_taital">About Us</h1>
+                     <p class="about_text">
+                     Our Application will project you all the information on the places available in a car 
+                     park by indicating the total number of places in a car park, the places available then 
+                     the full places and in addition to that it will provide you with an image which will 
+                     help you to locate the empty places. 
+                     </p>
+                     <div class="readmore_bt"><a href="{{ path('about') }}">Read More</a></div>
+                  </div>
+               </div>
+               <div class="col-md-6 padding_right_0">
+                  <div><img src="{{ asset('assets/images/exemple.jpg') }}" class="about_img"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+      
+      <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+
+      <!-- client section start -->
+      <div class="client_section layout_padding">
+         <div class="container">
+            <h1 class="client_taital">Testimonial</h1>
+            <div class="client_section_2">
+               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="client_main">
+                           <div class="box_left">
+                              <p class="lorem_text">
+                              No negative points to tell. This is the most helpful website and is really very easy to use. 
+                              If you are late for work and doesn't have time to search for a free parking spot ,This website is for you  :))
+                              But it was  impressive how good  and accurate the information were .
+                                </p>
+                           </div>
+                           <div class="box_right">
+                              <div class="client_taital_left">
+                                 <div class="client_img"><img src="{{ asset('assets/images/client-img.png') }}"></div>
+                                 <div class="quick_icon"><img src="{{ asset('assets/images/quick-icon.png') }} "></div>
+                              </div>
+                              <div class="client_taital_right">
+                                 <h4 class="client_name">Dame</h4>
+                                 <p class="customer_text">Customer</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="client_main">
+                           <div class="box_left">
+                              <p class="lorem_text">
+
+                              No negative points to tell. This is the most helpful website and is really very easy to use. 
+                              If you are late for work and doesn't have time to search for a free parking spot ,This website is for you  :))
+                              But it was  impressive how good  and accurate the information were .
+                              
+                              </p>
+                           </div>
+                           <div class="box_right">
+                              <div class="client_taital_left">
+                                 <div class="client_img"><img src="{{ asset('assets/images/client-img.png') }} "></div>
+                                 <div class="quick_icon"><img src="{{ asset('assets/images/quick-icon.png') }} "></div>
+                              </div>
+                              <div class="client_taital_right">
+                                 <h4 class="client_name">Dame</h4>
+                                 <p class="customer_text">Customer</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="client_main">
+                           <div class="box_left">
+                              <p class="lorem_text">
+                              No negative points to tell. This is the most helpful website and is really very easy to use. 
+                              If you are late for work and doesn't have time to search for a free parking spot ,This website is for you  :))
+                              But it was  impressive how good  and accurate the information were .
+                              </p>
+                           </div>
+                           <div class="box_right">
+                              <div class="client_taital_left">
+                                 <div class="client_img"><img src="{{ asset('assets/images/client-img.png') }}"></div>
+                                 <div class="quick_icon"><img src="{{ asset('assets/images/quick-icon.png') }} "></div>
+                              </div>
+                              <div class="client_taital_right">
+                                 <h4 class="client_name">Dame</h4>
+                                 <p class="customer_text">Customer</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- client section start -->
+      <!-- choose section start -->
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">Why Choose Us</h1>
+            <p class="choose_text">
+            Because we focus on results. For us, it’s all about what adds value for
+             you . Above all, we want our app  to make you feel comfortableusing our
+              website and save you precious  time .
+             </p>
+            
+            
+         </div>
+      </div>
+      <!-- choose section end --> 
+
+
+
+
+
+
+
+{% endblock %}

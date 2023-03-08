@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% include "_partials/_nav.html.twig" %}
+
+      <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <h1>Car detection spot </h1>
+                <p> Choose the location where you would like to find Free space : </p>      
+            </div>
+
+         {% for place in places %}
+         
+                    <div class="col-4">
+                        <div class="card h-100">
+                        
+                            <div class="card-body">
+                            
+                                <h5 class="card-title">Adresse : </h5>
+                                <P>{{ place.information.getAdresse }} </p>
+
+                                <h5 class="card-title">City : </h5>
+                                <P>{{ place.information.getCity }} </p>
+
+                                <h5 class="card-title">Postal Code : </h5>
+                                <P>{{ place.information.getPostalCode }} </p>
+
+                                <a href="{{ path('places_details', { id:place.getId , images:place.getName } ) }}" class="btn btn-primary">Choose location </a>
+
+                                
+                                
+                            </div>
+                        </div>
+                    </div>    
+                
+            {% endfor %}
+            
+        </section>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    {% include "_partials/_nav.html.twig" %}
+
+    <script>
+        $(document).ready(function() {
+            // Fonction pour mettre à jour les données de la page
+            function updateData(free, full, total, image) {
+                $(".Free").text(free);
+                $(".Occupied").text(full);
+                $(".Total").text(total);
+                $(".Map").attr("src", image); // Modifier la source de l'image
+            }
+
+            // Fonction pour appeler l'API et mettre à jour les données
+            function callAPI() {
+                $.ajax({
+                    url: "https://mdakk072.pythonanywhere.com/status",
+                    type: "GET",
+                    success: function(response) {
+                        updateData(response.empty, response.full, response.places, response.map);
+                    },
+                    error: function(xhr) {
+                        console.log("Erreur : " + xhr.statusText);
+                    }
+                });
+            }
+
+            // Appeler l'API toutes les 2 secondes
+            setInterval(callAPI, 2000);
+        });
+    </script>
+
+    <div class="choose_section layout_padding">
+        <div class="container">
+            <h1 class="choose_taital">At this moment there are :</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Available</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Number of available places</h5>
+                            <p class="card-text Free">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Full</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Number of full places</h5>
+                            <p class="card-text Occupied">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Total</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Number of total places</h5>
+                            <p class="card-text Total">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="choose_section layout_padding">
+        <div class="container">
+            <h1 class="choose_taital">Please refer to the image below for more information about the places:</h1>
+            <img src="{{ asset('assets/uploads/') }}" class="d-block w-100 Map" alt="Error"> <!-- Ajouter la classe "Map" pour identifier l'image -->
+        </div>
+    </div>
+
+{% endblock %}

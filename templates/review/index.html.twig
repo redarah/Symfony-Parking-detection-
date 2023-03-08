@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Review{% endblock %}
+
+{% block body %}
+{% include "_partials/_nav.html.twig" %}
+
+ <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">What is your general opinion of our website and How could we improve your experience? </h1>
+            <p class="choose_text">
+            {{ form_start(AvisForm) }}
+                   {{ form_row(AvisForm.advice) }}    
+                    <button  type="submit" class="btn btn-primary btn-lg my-3">Submit</button>
+                {{ form_end(AvisForm) }}
+             </p>
+         </div>
+      </div>
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
+
+{% endblock %}
+

@@ -1,0 +1,65 @@
+
+
+{% extends "base.html.twig" %}
+
+{% block title %}Image
+
+{% endblock %}
+
+{% block body %}
+    {% include "_partials/_nav.html.twig" %}
+   
+
+    <div class="choose_section layout_padding">
+         <div class="container">
+
+            <h1 class="choose_taital">At this moment there are : </h1>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+               <div class="card-header">Available</div>
+                  <div class="card-body">
+                     <h5 class="card-title">Number of available places </h5>
+                     <p class="card-text"> {{free}}  </p>
+                  </div>
+             </div>
+             </div>
+
+            <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+               <div class="card-header">Full </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Number of full places</h5>
+                        <p class="card-text">{{full}} </p>
+                  </div>
+            </div>
+            </div>
+
+
+            <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+               <div class="card-header">Total</div>
+                  <div class="card-body">
+                     <h5 class="card-title">Number of total  places </h5>
+                        <p class="card-text">{{total}}   </p>
+                  </div>
+               </div>
+               </div>
+
+               </div>
+
+             
+         </div>
+      </div>
+       <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">Please refer to the image below for more information about the places :  </h1>      
+             <img src="{{ asset('assets/uploads/') ~ newpic }}" class="d-block w-100" alt=" error ">
+         </div>
+      </div>
+
+      
+    
+{% endblock %}

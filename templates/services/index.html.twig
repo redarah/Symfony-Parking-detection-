@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des places disponible {% endblock %}
+
+{% block body %}
+{% include "_partials/_nav.html.twig" %}
+
+     <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">How to access the functionality of the website </h1>
+            <p class="choose_text">
+            First you must have an account in the application to have access to the functionality of the website.
+             </p>
+         </div>
+      </div>
+
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">Creating an account </h1>
+            <p class="choose_text">
+            To create an account on our website you will find a link in the navbar of our application under the name of
+            "Register" or in the button below , click on it this will automatically take you to the registration page, once your registration is
+             done you will automatically be directed in the page that contains the available parking spaces.
+             </p>
+             <div class="read_bt"><a href="{{ path('app_register') }}"> Register  </a></div>
+         </div>
+      </div>
+
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">Already have an account</h1>
+            <p class="choose_text">
+            If you already have an account you can log in by clicking on the "Log in" link in the nav bar or in the button below, then you will be 
+            asked to enter your information, including your email address and password, then click on the button at the bottom
+             and you will be directed to the page where we find the available parking lots
+             </p>
+             <div class="read_bt"><a href="{{ path('app_login') }}"> Log in  </a></div>
+         </div>
+      </div>
+
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">Leave us your review </h1>
+            <p class="choose_text">
+            We love our community mind sharing ,you;re honest feedback would be so gratitude .
+            To do so you must be connected to the application, once you connect you find a link
+            in the navbar under the name of "Review" , click on it and the latter will direct you 
+            to the reviews page, this process generally takes less than one minute and helps us 
+            to improve our website.</br>
+            A link wiil appears below if you are logged in correctly 
+            </p>
+            {% if app.user %}
+               <div class="read_bt"><a href="{{ path('review') }}"> Get started  </a></div>
+            {% endif %}
+
+         </div>
+      </div>
+      
+{% endblock %}

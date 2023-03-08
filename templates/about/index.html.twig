@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+{% include "_partials/_nav.html.twig" %}
+   <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">About Us</h1>
+            <p class="choose_text">
+            Our Application will project you all the information on the places available in a car park by indicating the
+             total number of places in a car park, the places available 
+            then the full places and in addition to that it will provide you with an image which will help you to locate the empty places.
+             </p>
+         </div>
+      </div>
+
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">How we proceed</h1>
+            <p class="choose_text">
+            First, we take a picture of the parking space with empty lines, to allow our 
+            algorithm to search for eligible parking spaces based on line detection, once
+             the spaces are found, we will detect the presence of object in these places 
+             to determine if the space is empty or not, every minute the information is 
+             updated in our database, to have access to it you just have to refresh the page.
+             </p>
+         </div>
+      </div>
+
+      <div class="choose_section layout_padding">
+         <div class="container">
+            <h1 class="choose_taital">Contact us</h1>
+            <p class="choose_text">
+            If you are a company that has parking and wants to benefit from our services to 
+            make life easier for its customers, please contact us via:
+            email: demo@gmail.com
+            Phone number : +01 1234567890
+             </p>
+         </div>
+      </div>
+{% endblock %}
